@@ -9,7 +9,8 @@
   --parchment-2: #EBE1C9;
   --brass: #B8933E;
   --brass-light: #D9B968;
-  --evidence: #A8352B;
+  --evidence: #4CBB17;
+  --evidence-dark: #3D9612;
   --walnut: #4A3625;
   --slate: #6B6459;
   --cream-text: #EDE4D0;
@@ -41,7 +42,7 @@ nav a:hover{color:var(--brass-light);border-color:var(--brass);}
 .nav-actions{display:flex;align-items:center;gap:14px;}
 .btn{display:inline-block;padding:10px 22px;border-radius:6px;font-weight:600;font-size:0.9rem;transition:transform .12s ease, box-shadow .12s ease, background .15s ease;}
 .btn-primary{background:var(--evidence);color:var(--cream-text);}
-.btn-primary:hover{background:#8f2b23;transform:translateY(-1px);}
+.btn-primary:hover{background:var(--evidence-dark);transform:translateY(-1px);}
 .btn-outline{background:transparent;color:var(--cream-text);border:1.5px solid rgba(237,228,208,0.4);}
 .btn-outline:hover{background:rgba(237,228,208,0.1);}
 .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;}
@@ -83,8 +84,8 @@ nav a:hover{color:var(--brass-light);border-color:var(--brass);}
 /* Evidence cards — the diagnosis step */
 .evidence-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 .evidence-card{background:var(--parchment);border:1px solid #ddd0ab;border-radius:4px;padding:26px 22px;position:relative;box-shadow:0 6px 16px rgba(30,26,22,0.06);}
-.evidence-card::before{content:"";position:absolute;top:0;left:24px;width:36px;height:10px;background:rgba(168,53,43,0.15);border-radius:0 0 4px 4px;}
-.evidence-tag{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--evidence);background:rgba(168,53,43,0.08);padding:3px 10px;border-radius:100px;margin-bottom:14px;}
+.evidence-card::before{content:"";position:absolute;top:0;left:24px;width:36px;height:10px;background:rgba(76,187,23,0.15);border-radius:0 0 4px 4px;}
+.evidence-tag{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--evidence);background:rgba(76,187,23,0.08);padding:3px 10px;border-radius:100px;margin-bottom:14px;}
 .evidence-card h3{font-size:1.08rem;margin-bottom:8px;color:var(--ink);}
 .evidence-card p{color:var(--slate);font-size:0.92rem;}
 
@@ -111,10 +112,22 @@ nav a:hover{color:var(--brass-light);border-color:var(--brass);}
 .step h3{font-size:1.2rem;margin-bottom:8px;color:var(--ink);}
 .step p{color:var(--slate);font-size:0.98rem;max-width:560px;}
 
+/* Tools — the buyable pipeline slices */
+.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:8px;}
+.tool-card{background:var(--parchment);border:1px solid #ddd0ab;border-radius:10px;padding:28px 24px;}
+.tool-card h3{font-size:1.15rem;margin-bottom:10px;color:var(--ink);}
+.tool-card p{color:var(--slate);font-size:0.92rem;}
+.tool-badge{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--evidence-dark);background:rgba(76,187,23,0.12);padding:4px 12px;border-radius:100px;margin-bottom:14px;}
+.tool-badge-paid{color:var(--walnut);background:rgba(74,54,37,0.1);}
+.tool-badge-bundle{color:var(--cream-text);background:rgba(237,228,208,0.16);}
+.tool-card-bundle{background:var(--ink);border-color:var(--evidence);}
+.tool-card-bundle h3{color:var(--cream-text);}
+.tool-card-bundle p{color:#cfc3a8;}
+
 /* CTA band */
 .cta-band{background:var(--evidence);color:var(--cream-text);padding:80px 0;text-align:center;}
 .cta-band h2{font-size:2.3rem;margin-bottom:14px;}
-.cta-band p{color:#f2ded9;font-size:1.05rem;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;}
+.cta-band p{color:#e3f2d9;font-size:1.05rem;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;}
 .cta-band .btn-primary{background:var(--ink);}
 .cta-band .btn-primary:hover{background:#000;}
 
@@ -176,12 +189,14 @@ footer{background:var(--ink);color:#a89b82;padding:56px 0 28px;}
   .evidence-grid{grid-template-columns:1fr 1fr;}
   .diff-grid{grid-template-columns:1fr;gap:32px;}
   .vertical-grid{grid-template-columns:1fr;}
+  .tool-grid{grid-template-columns:1fr 1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
 }
 @media (max-width:520px){
   .nav-inner{padding:12px 16px;}
   .hero h1{font-size:2rem;}
   .evidence-grid{grid-template-columns:1fr;}
+  .tool-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
   .label-full{display:none;}
   .label-short{display:inline;}
