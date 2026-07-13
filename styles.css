@@ -124,6 +124,14 @@ nav a:hover{color:var(--brass-light);border-color:var(--brass);}
 .tool-card-bundle h3{color:var(--cream-text);}
 .tool-card-bundle p{color:#cfc3a8;}
 
+/* Live output preview — the real Build-stage demo */
+.output-preview{border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(30,26,22,0.18);border:1px solid #ddd0ab;}
+.output-preview-link{position:relative;display:block;}
+.output-preview-link img{display:block;width:100%;transition:transform .3s ease;}
+.output-preview-link:hover img{transform:scale(1.02);}
+.output-preview-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(20,17,13,0.55);color:var(--cream-text);font-weight:700;font-size:1.15rem;opacity:0;transition:opacity .2s ease;}
+.output-preview-link:hover .output-preview-overlay{opacity:1;}
+
 /* CTA band */
 .cta-band{background:var(--evidence);color:var(--cream-text);padding:80px 0;text-align:center;}
 .cta-band h2{font-size:2.3rem;margin-bottom:14px;}
