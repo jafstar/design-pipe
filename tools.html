@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — DesignPipe</title>
-<meta name="description" content="DesignPipe is built by AInt.farm, a human-directed AI production house with a real track record of shipped multi-agent products.">
+<title>Free Brand System Generator — DesignPipe</title>
+<meta name="description" content="Generate a real, WCAG-checked color palette, typography scale, and grid system in your browser — free forever, no signup, no API key. The same pure math DesignPipe's paid Build stage runs on.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="tools/tools.css">
 </head>
 <body>
 
@@ -26,7 +28,7 @@
     </a>
     <nav>
       <ul>
-        <li><a href="tools.html">Free Tools</a></li>
+        <li><a href="tools.html" aria-current="page">Free Tools</a></li>
         <li><a href="index.html#how">The Tools</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -34,42 +36,52 @@
     </nav>
     <div class="nav-actions">
       <a href="https://wefixugly.site" target="_blank" rel="noopener" class="btn btn-outline">Free Diagnosis</a>
-      <a href="tools.html" class="btn btn-primary"><span class="label-full">Try The Free Tools</span><span class="label-short">Free Tools</span></a>
+      <a href="#generator" class="btn btn-primary"><span class="label-full">Generate a System</span><span class="label-short">Generate</span></a>
       <button class="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<section class="page-banner">
-  <div class="wrap">
-    <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
-    <h1>Built by AInts, an AI production house.</h1>
-    <p>DesignPipe isn't a solo wrapper around one AI model. It's a product of AInt.farm — a human-directed colony of AI agents with a real track record of shipping things that actually work.</p>
+<section class="hero" style="min-height:auto;">
+  <div class="wrap hero-inner" style="padding-top:80px;padding-bottom:60px;max-width:760px;">
+    <span class="hero-badge">Free, Forever</span>
+    <h1>A real brand system. Generated in your browser.</h1>
+    <p>Color, typography, and grid — the same pure, WCAG-checked math that drives DesignPipe's paid Build stage, running for free, live, with no signup and no API key. This is the free basic editor, not a teaser.</p>
   </div>
 </section>
 
-<section class="article">
-  <div class="wrap article-inner">
-    <h2>Why we built this</h2>
-    <p>Local business owners get stuck with the same bad options: pay an agency thousands for a redesign that takes months, or use an AI tool that generates a "website" as one flat image with fake, misspelled text baked into it. Neither actually fixes what's wrong with the site.</p>
-    <p class="muted">We wanted a third option — real diagnosis, real redesign, real components, at a price and speed that makes sense for a restaurant, a salon, or an HVAC contractor, not just an enterprise client.</p>
-
-    <h2>Who's behind it</h2>
-    <p>DesignPipe is built and run by AInt.farm — a colony of AI agents that draft, critique, and refine real work, with a human always making the final call on what ships. Nothing goes out the door on autopilot.</p>
-    <p class="muted">This isn't the colony's first product. It has a real, shipped track record:</p>
-    <ul class="track-record">
-      <li><strong>colony.aint.farm</strong> — a live control panel where a human directs a working multi-agent team in real time.</li>
-      <li><strong>Xlectic</strong> — a dialectic engine that cross-examines your thinking instead of agreeing with it.</li>
-    </ul>
-    <p>DesignPipe's own "Council" — the same draft, critique, refine discipline — is the same real capability, pointed at your website instead.</p>
+<section class="section" id="generator">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pick a Mood</span>
+      <h2>One mood drives all three systems together.</h2>
+      <p>Color, typography, and grid share the same 11-name mood vocabulary, so what you generate actually agrees with itself — not three independently-picked aesthetics that clash.</p>
+    </div>
+    <div class="mood-grid" id="moodGrid"></div>
+    <div class="generator-actions">
+      <button class="btn btn-outline btn-lg" id="surpriseBtn">🎲 Surprise Me</button>
+      <button class="btn btn-primary btn-lg" id="regenBtn">Regenerate</button>
+      <button class="btn btn-outline btn-lg" id="copyCssBtn">Copy as CSS</button>
+    </div>
   </div>
 </section>
 
-<section class="cta-band" id="cta">
+<section class="section section-dark" id="results">
   <div class="wrap">
-    <h2>See it work on your site.</h2>
-    <p>Free diagnosis. No obligation.</p>
-    <a href="https://wefixugly.site" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Get Your Free Diagnosis</a>
+    <div class="section-head">
+      <span class="eyebrow" id="resultMood">—</span>
+      <h2>Your generated system</h2>
+      <p id="wcagSummary" class="wcag-summary">—</p>
+    </div>
+
+    <h3 class="result-subhead">Color</h3>
+    <div class="swatch-grid" id="swatchGrid"></div>
+
+    <h3 class="result-subhead">Typography</h3>
+    <div class="type-preview" id="typePreview"></div>
+
+    <h3 class="result-subhead">Grid</h3>
+    <div class="grid-preview" id="gridPreview"></div>
   </div>
 </section>
 
@@ -92,6 +104,7 @@
       <div class="footer-col">
         <h4>DesignPipe</h4>
         <ul>
+          <li><a href="tools.html">Free Tools</a></li>
           <li><a href="index.html#how">The Tools</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="about.html">About</a></li>
@@ -101,7 +114,7 @@
         <h4>Get Started</h4>
         <ul>
           <li><a href="mailto:hello@designpipe.io">hello@designpipe.io</a></li>
-          <li><a href="index.html#cta">Free Diagnosis</a></li>
+          <li><a href="https://wefixugly.site" target="_blank" rel="noopener">Free Diagnosis</a></li>
         </ul>
       </div>
     </div>
@@ -117,5 +130,6 @@
 </a>
 
 <script src="main.js" defer></script>
+<script type="module" src="tools/tools.js"></script>
 </body>
 </html>
